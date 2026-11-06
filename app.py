@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, redirect, url_for
 
 from forms import (
@@ -7,7 +8,10 @@ from forms import (
 )
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'clinical-trust-secret-key'
+app.config['SECRET_KEY'] = os.environ.get(
+    'SECRET_KEY',
+    'dev-only-secret-key'
+)
 
 
 # -------------------- Home --------------------
