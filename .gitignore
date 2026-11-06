@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+myflask/
+venv/
+.env
+.vscode/
+*.log

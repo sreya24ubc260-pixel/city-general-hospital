@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - City General Hospital{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section bg-light py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <span class="badge bg-primary-container text-primary mb-3 px-3 py-2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-1">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    ESTABLISHED SINCE 1985
+                </span>
+                <h1 class="display-4 fw-bold mb-3">Advanced Healthcare <br><span class="text-primary">Driven by Empathy</span></h1>
+                <p class="lead text-muted mb-4">Experience world-class medical precision combined with a patient-first approach. From routine check-ups to complex surgeries, our experts are here for you.</p>
+                <div class="d-flex gap-3">
+                    <a href="{{ url_for('book') }}" class="btn btn-primary btn-lg px-4">Book Appointment</a>
+                    <a href="#specializations" class="btn btn-outline-primary btn-lg px-4">View Specializations</a>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-4 border-end">
+                        <h4 class="fw-bold mb-0">500+</h4>
+                        <small class="text-muted">Expert Doctors</small>
+                    </div>
+                    <div class="col-4 border-end">
+                        <h4 class="fw-bold mb-0">150k+</h4>
+                        <small class="text-muted">Happy Patients</small>
+                    </div>
+                    <div class="col-4">
+                        <h4 class="fw-bold mb-0">24/7</h4>
+                        <small class="text-muted">Emergency Care</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="position-relative">
+                    <img src="https://plus.unsplash.com/premium_photo-1682130157004-057c137d96d5?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Modern Hospital Lobby" class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Appointment Search Bar -->
+<div class="container">
+    <div class="bg-white p-4 rounded-4 shadow-sm mt-n4 position-relative z-1 border">
+        <div class="row g-3 align-items-end">
+            <div class="col-md-4">
+                <label class="form-label small fw-bold">Search Doctor</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-transparent border-end-0"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control border-start-0" placeholder="Doctor name or specialty">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label small fw-bold">Date</label>
+                <input type="date" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label small fw-bold">Location</label>
+                <select class="form-select">
+                    <option>Main Campus</option>
+                    <option>North Clinic</option>
+                    <option>South Wellness Center</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-info text-white w-100 py-2 fw-bold">Find Appointment</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Specializations Section -->
+<section id="specializations" class="py-5 mt-5">
+    <div class="container text-center mb-5">
+        <h2 class="fw-bold mb-3">Our Specializations</h2>
+        <p class="text-muted mx-auto" style="max-width: 700px;">Providing precise and compassionate care across all medical disciplines, powered by state-of-the-art technology and world-renowned specialists.</p>
+    </div>
+    <div class="container">
+        <div class="row g-4">
+            <!-- Cardiology -->
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow-sm bg-surface-container-low p-4 text-start">
+                    <div class="icon-box mb-3 text-primary">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                        </svg>
+                    </div>
+                    <h5 class="fw-bold">Cardiology</h5>
+                    <p class="small text-muted">Advanced heart care including non-invasive diagnostics and complex cardiac surgeries.</p>
+                    <a href="#" class="text-primary fw-bold text-decoration-none small">Learn More &rarr;</a>
+                </div>
+            </div>
+            <!-- Pediatrics -->
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow-sm bg-surface-container-low p-4 text-start">
+                    <div class="icon-box mb-3 text-primary">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/>
+                        </svg>
+                    </div>
+                    <h5 class="fw-bold">Pediatrics</h5>
+                    <p class="small text-muted">Dedicated healthcare for infants, children, and adolescents with a gentle touch.</p>
+                    <a href="#" class="text-primary fw-bold text-decoration-none small">Learn More &rarr;</a>
+                </div>
+            </div>
+            <!-- Orthopedics -->
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow-sm bg-surface-container-low p-4 text-start">
+                    <div class="icon-box mb-3 text-primary">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                        </svg>
+                    </div>
+                    <h5 class="fw-bold">Orthopedics</h5>
+                    <p class="small text-muted">Comprehensive care for bones, joints, and ligaments using robotic-assisted tech.</p>
+                    <a href="#" class="text-primary fw-bold text-decoration-none small">Learn More &rarr;</a>
+                </div>
+            </div>
+            <!-- Neurology -->
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow-sm bg-surface-container-low p-4 text-start">
+                    <div class="icon-box mb-3 text-primary">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2a10 10 0 0 0-10 10c0 4.99 3.66 9.11 8.44 9.87a1 1 0 0 0 1.11-.87V17h2v4.13c0 .54.4.99.94 1.01A10 10 0 0 0 12 2Z"/>
+                        </svg>
+                    </div>
+                    <h5 class="fw-bold">Neurology</h5>
+                    <p class="small text-muted">Expert diagnosis and management of complex neurological and brain disorders.</p>
+                    <a href="#" class="text-primary fw-bold text-decoration-none small">Learn More &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-5 bg-primary-container">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <h2 class="fw-bold mb-4">Why Choose City General?</h2>
+                <p class="text-muted mb-4">We set the standard for clinical excellence and patient safety. Our integrated approach ensures that you receive coordinated, high-quality care for every stage of your health journey.</p>
+                <ul class="list-unstyled">
+                    <li class="mb-3 d-flex align-items-center">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="text-primary me-2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        JCI Accredited Facility
+                    </li>
+                    <li class="mb-3 d-flex align-items-center">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="text-primary me-2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        24/7 Emergency & ICU Care
+                    </li>
+                    <li class="mb-3 d-flex align-items-center">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="text-primary me-2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        Multidisciplinary Team of Specialists
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-7">
+                <div class="row g-3">
+                    <div class="col-6">
+    <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=600&q=80"
+         alt="Expert Staff"
+         class="img-fluid rounded-4 mb-3">
+
+    <img src="https://www.oneviewhealthcare.com/wp-content/uploads/2021/06/shutterstock_361329356-scaled.jpg"
+         alt="Patient Care"
+         class="img-fluid rounded-4">
+</div>
+                    <div class="col-6 mt-4">
+    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80"
+         alt="Modern Medical Technology"
+         class="img-fluid rounded-4 mb-3">
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPmTUTZ25Grxws-CuAEidEuVPruuBjg0LTtyfXF5aQWMw4IR8dNliAQ9_s&s=10"
+         alt="Hospital Building"
+         class="img-fluid rounded-4">
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="bg-primary p-5 rounded-4 text-center text-white shadow-lg position-relative overflow-hidden">
+            <div class="position-relative z-1">
+                <h2 class="display-5 fw-bold mb-3">Take the First Step Towards Better Health</h2>
+                <p class="lead mb-4 opacity-75">Schedule your consultation with our leading specialists today through our secure online booking portal.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="{{ url_for('book') }}" class="btn btn-white btn-lg px-5 text-primary fw-bold bg-white">Book An Appointment</a>
+                    <a href="tel:+15550123456" class="btn btn-outline-white btn-lg px-4 border-white text-white">Call +1 (555) 012-3456</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

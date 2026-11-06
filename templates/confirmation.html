@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %}Appointment Confirmed - City General Hospital{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="form-container" style="max-width: 900px;">
+        <!-- Confirmation Header -->
+        <div class="text-center mb-5">
+            <div class="icon-box mb-3 text-success d-inline-block">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+            </div>
+            <h1 class="fw-bold text-success">Appointment Scheduled!</h1>
+            <p class="lead text-muted">Thank you for choosing City General Hospital. Your appointment details are summarized below.</p>
+        </div>
+
+        <!-- Appointment Details Table -->
+        <div class="table-container shadow-sm rounded-3 overflow-hidden border">
+            <table class="table mb-0">
+                <thead>
+                    <tr>
+                        <th colspan="2" class="py-3 px-4 h5 mb-0">Appointment Summary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" class="px-4">Patient Name</th>
+                        <td class="px-4 text-dark fw-medium">{{ data.name }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="px-4">Email Address</th>
+                        <td class="px-4">{{ data.email }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="px-4">Age / Gender</th>
+                        <td class="px-4">{{ data.age }} years / {{ data.gender }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="px-4">Department</th>
+                        <td class="px-4">
+                            <span class="badge bg-primary-container text-primary px-3 py-2">
+                                {{ data.department }}
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="px-4">Appointment Date</th>
+                        <td class="px-4 fw-bold text-primary">{{ data.date }}</td>
+                    </tr>
+                    {% if data.symptoms %}
+                    <tr>
+                        <th scope="row" class="px-4">Symptoms / Notes</th>
+                        <td class="px-4 text-muted">{{ data.symptoms }}</td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Action Items -->
+        <div class="mt-5 p-4 bg-light rounded-3 border border-dashed text-center">
+            <h5 class="fw-bold mb-3">Important Next Steps</h5>
+            <div class="row g-4 text-start">
+                <div class="col-md-6">
+                    <div class="d-flex gap-3">
+                        <div class="text-primary mt-1">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                            </svg>
+                        </div>
+                        <p class="small mb-0">Please arrive 15 minutes before your scheduled time for check-in and vitals.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex gap-3">
+                        <div class="text-primary mt-1">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14.5 2 14.5 7.5 20 7.5"/>
+                            </svg>
+                        </div>
+                        <p class="small mb-0">Carry a valid ID and any relevant previous medical history or insurance cards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="d-flex flex-column flex-md-row gap-3 mt-5">
+            <a href="javascript:window.print()" class="btn btn-outline btn-lg flex-grow-1 d-flex align-items-center justify-content-center gap-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>
+                </svg>
+                Print Summary
+            </a>
+            <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg flex-grow-1">Return to Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

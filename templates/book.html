@@ -1,0 +1,134 @@
+{% extends 'base.html' %} 
+
+{% block title %}Book Appointment - City General Hospital{% endblock %} 
+
+{% block content %} 
+<div class="container"> 
+    <div class="form-container"> 
+        <h2 class="form-title">Schedule Your Appointment</h2> 
+        <p class="text-center mb-4">Please fill in the details below to book your consultation with our specialists.</p> 
+        
+        <form method="POST" action="{{ url_for('book') }}" enctype="multipart/form-data" novalidate> 
+            {{ form.hidden_tag() }} 
+            
+            <div class="row"> 
+                <!-- Patient Name --> 
+                <div class="col-md-6 form-group"> 
+                    {{ form.patient_name.label }} 
+                    {{ form.patient_name(class="form-control" + (" is-invalid" if form.patient_name.errors else ""), placeholder="Enter full name") }} 
+                    {% for error in form.patient_name.errors %} 
+                        <div class="invalid-feedback">{{ error }}</div> 
+                    {% endfor %} 
+                </div> 
+                
+                <!-- Email Address --> 
+                <div class="col-md-6 form-group"> 
+                    {{ form.email.label }} 
+                    {{ form.email(class="form-control" + (" is-invalid" if form.email.errors else ""), placeholder="example@email.com") }} 
+                    {% for error in form.email.errors %} 
+                        <div class="invalid-feedback">{{ error }}</div> 
+                    {% endfor %} 
+                </div> 
+            </div> 
+            
+            <div class="row"> 
+                <!-- Password --> 
+                <div class="col-md-6 form-group"> 
+                    {{ form.password.label }} 
+                    {{ form.password(class="form-control" + (" is-invalid" if form.password.errors else ""), placeholder="Minimum 8 characters") }} 
+                    {% for error in form.password.errors %} 
+                        <div class="invalid-feedback">{{ error }}</div> 
+                    {% endfor %} 
+                </div> 
+                
+                <!-- Confirm Password --> 
+                <div class="col-md-6 form-group"> 
+                    {{ form.confirm_password.label }} 
+                    {{ form.confirm_password(class="form-control" + (" is-invalid" if form.confirm_password.errors else ""), placeholder="Repeat password") }} 
+                    {% for error in form.confirm_password.errors %} 
+                        <div class="invalid-feedback">{{ error }}</div> 
+                    {% endfor %} 
+                </div> 
+            </div> 
+            
+            <div class="row"> 
+                <!-- Age --> 
+                <div class="col-md-4 form-group"> 
+                    {{ form.age.label }} 
+                    {{ form.age(class="form-control" + (" is-invalid" if form.age.errors else "")) }} 
+                    {% for error in form.age.errors %} 
+                        <div class="invalid-feedback">{{ error }}</div> 
+                    {% endfor %} 
+                </div> 
+                
+                <!-- Gender --> 
+                <div class="col-md-8 form-group"> 
+                    {{ form.gender.label }} 
+                    <div class="radio-group"> 
+                        {% for subfield in form.gender %} 
+                            <div class="form-check"> 
+                                {{ subfield(class="form-check-input") }} 
+                                {{ subfield.label(class="form-check-label") }} 
+                            </div> 
+                        {% endfor %} 
+                    </div> 
+                    {% if form.gender.errors %} 
+                        {% for error in form.gender.errors %} 
+                            <span class="invalid-feedback d-block">{{ error }}</span> 
+                        {% endfor %} 
+                    {% endif %} 
+                </div> 
+            </div> 
+            
+            <div class="row"> 
+                <!-- Department Selection --> 
+                <div class="col-md-6 form-group"> 
+                    {{ form.department.label }} 
+                    {{ form.department(class="form-select" + (" is-invalid" if form.department.errors else "")) }} 
+                    {% for error in form.department.errors %} 
+                        <div class="invalid-feedback">{{ error }}</div> 
+                    {% endfor %} 
+                </div> 
+                
+                <!-- Appointment Date --> 
+                <div class="col-md-6 form-group"> 
+                    {{ form.appointment_date.label }} 
+                    {{ form.appointment_date(class="form-control" + (" is-invalid" if form.appointment_date.errors else ""), type="date") }} 
+                    {% for error in form.appointment_date.errors %} 
+                        <div class="invalid-feedback">{{ error }}</div> 
+                    {% endfor %} 
+                </div> 
+            </div> 
+            
+            <!-- Symptoms --> 
+            <div class="form-group"> 
+                {{ form.symptoms.label }} 
+                {{ form.symptoms(class="form-control", rows="4", placeholder="Briefly describe your symptoms or reason for visit") }} 
+            </div> 
+            
+            <!-- File Upload --> 
+            <div class="form-group"> 
+                {{ form.medical_reports.label }} 
+                {{ form.medical_reports(class="form-control") }} 
+                <small class="text-muted">PDF, JPG, or PNG files only (Optional)</small> 
+            </div> 
+            
+            <!-- Terms Agreement --> 
+            <div class="form-group checkbox-group"> 
+                <div class="form-check"> 
+                    {{ form.agree_terms(class="form-check-input" + (" is-invalid" if form.agree_terms.errors else "")) }} 
+                    {{ form.agree_terms.label(class="form-check-label") }} 
+                </div> 
+                {% for error in form.agree_terms.errors %} 
+                    <div class="invalid-feedback d-block">{{ error }}</div> 
+                {% endfor %} 
+            </div> 
+            
+            <!-- Submit Button --> 
+            <div class="form-actions mt-4"> 
+                {{ form.submit(class="btn btn-primary btn-lg") }} 
+            </div> 
+        </form> 
+    </div> 
+</div> 
+{% endblock %}
